@@ -6,6 +6,7 @@ import Register from "./Register";
 import About from "./About";
 import Helpline from "./Helpline";
 import Dashboard from "./Dashboard";
+import BrowseFarms from "./BrowseFarms";
 import styles from "./styles"
 
 
@@ -21,6 +22,7 @@ export default function App() {
 <Drawer.Screen name='Helpline' component={Helpline} />
 <Drawer.Screen name='About' component={About} />
 <Drawer.Screen name='Dashboard' component={Dashboard} />
+<Drawer.Screen name='BrowseFarms' component={BrowseFarms} />
 
       </Drawer.Navigator>
     </NavigationContainer>
