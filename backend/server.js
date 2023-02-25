@@ -5,11 +5,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { exit } = require("process");
 const { signup } = require("./controllers/user");
+const { getCompanyChart, getCompanyOverview } = require("./controllers/stocks");
 const app = express();
 const port = 3000;
 mongoose
   .connect(
-    "mongodb+srv://hemabhushan:Doraemon2003@cluster1.janrf2b.mongodb.net/StockApp",
+    "mongodb+srv://cluster1.janrf2b.mongodb.net/?authSource=%24external&authMechanism=MONGODB-X509&retryWrites=true&w=majority",
     { useNewUrlParser: true }
   )
   .then(() => console.log(`Database connected successfully`))
@@ -74,6 +75,9 @@ app.get("/loc2ip", (req, res) => {
 });
 
 app.post("/signup", signup);
+
+app.post("/getcompanychart", getCompanyChart);
+app.post("/getcompanyoverview", getCompanyOverview);
 
 app.listen(port, ip);
 app.listen(port);
