@@ -1,0 +1,19 @@
+{
+  "name": "10_cropitalists",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sathvik-Malgikar/10_Cropitalists.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sathvik-Malgikar/10_Cropitalists/issues"
+  },
+  "homepage": "https://github.com/Sathvik-Malgikar/10_Cropitalists#readme"
+}
