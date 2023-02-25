@@ -1,7 +1,11 @@
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
-
+profilePhoto :{
+ width : 30,
+ borderRadius : 30,
+ overflow : "hidden"
+},
 link : {
 color : "blue"
 },
