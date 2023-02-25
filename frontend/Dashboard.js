@@ -1,7 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { useState } from 'react'
 import styles from "./styles"
-
 
 const Dashboard = () => {
     const [name , setName] = useState("Loading..")
@@ -28,7 +27,9 @@ const Dashboard = () => {
 <Text onPress={()=>{setSelect(2)}}>Highest Revenue Crop </Text>
         </View>
         {select==-1? (<></>): select==0? (<RevenueDropdown></RevenueDropdown>) : select==1? (<RevenueDropdown></RevenueDropdown>) : (<Revpercrop></Revpercrop>)}
-       
+       <View>
+       <InvestorHistory/>
+       </View>
       </View>
     </View>
   )
@@ -76,6 +77,53 @@ const styleslocal = StyleSheet.create({
      
     }
   })
+
+
+  const InvestorHistory=()=>{
+    const [invtarr,setinvtarr]=useState([])
+  // Amt
+  // INvName
+  // TxID
+  // AMtStck
+  // NameStck
+
+const arrtemp = [{amount:'184.3223',invstrname:'Govinda',txId:'12323',amtStock:'200',nameStock:'YELL123MZE'},{amount:'191.3223',invstrname:'JamaBhai',txId:'12393',amtStock:'180',nameStock:'YELL123BNS'},{amount:'146.3223',invstrname:'Scandy',txId:'11993',amtStock:'180',nameStock:'YELL123MZE'},{amount:'189.38823',invstrname:'Jack',txId:'12813',amtStock:'180',nameStock:'YELL123MZE'}]
+
+
+function foo(){
+  if(arrtemp.length==0){
+  return (<Text>Loading</Text>)
+    }else{
+return( <View>
+  
+
+
+    <FlatList data={arrtemp} renderItem={(stock)=>{
+      return (<InvestorTile amount={stock.amount} invstrname={stock.invstrname} txId={stock.txId} amtStock={stock.amtStock} nameStock={stock.nameStock}/>)
+    }}  />
+
+    
+    
+    </View>)
+    }
+  
+}
+
+    // useEffect(()=>{
+    //   setinvtarr([{amount:'184.3223',invstrname:'Govinda',txId:'12323',amtStock:'200',nameStock:'YELL123MZE'},{amount:'191.3223',invstrname:'JamaBhai',txId:'12393',amtStock:'180',nameStock:'YELL123BNS'},{amount:'146.3223',invstrname:'Scandy',txId:'11993',amtStock:'180',nameStock:'YELL123MZE'},{amount:'189.38823',invstrname:'Jack',txId:'12813',amtStock:'180',nameStock:'YELL123MZE'}])
+    // },[])
+    return(<View style={{width:'100%'}}><Text>{foo()}</Text></View>);
+  }
+  
+  const InvestorTile=({amount,invstrname,txId,amtStock,nameStock})=>{
+    return(
+ <></>
+    )
+  }
+
+
+
+
 
 export default Dashboard
 

@@ -4,9 +4,10 @@ import styles from "./styles"
 import { SimpleGrid } from 'react-native-super-grid';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
 import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 
-const CroptoStock = () => {
-  navigator - useNavigation();
+const CroptoStock = ({navigation}) => {
+  // navigator - useNavigation();
     let deets = [{"name" : "carrot" , "img" : require("./assets/images/carrot.png")}, { "name" : "dairy" , "img" : require("./assets/images/cow.jpg") } , { "name" : "poultry" , "img" :require("./assets/images/hen.jpg") }, { "name" : "banana" , "img" :require("./assets/images/banana.jpg") } , { "name" : "redapple" , "img" : require("./assets/images/redapple.jpg") }
     , { "name" : "honey" , "img" : require("./assets/images/honey.jpg") }]
     // deets = deets.map(ele=>require(ele))
@@ -65,7 +66,17 @@ setBox(true)
 <Text>Summary : {summary}</Text>
 
   <TouchableOpacity onPress={()=>{
- navigator.navigate("Portfolio")
+  setPop(false)
+ Toast.show({
+  type : "success",
+  text1 : "Stocks created!",
+  text2 : "New stocks are published!",
+})
+setTimeout(()=>{
+ navigation.navigate("Dashboard")
+},1000)
+
+
   }} style={styleslocal.button}>
       <Text>Confirm</Text> 
   </TouchableOpacity>
@@ -73,6 +84,7 @@ setBox(true)
 </View>
     </DialogContent>
   </Dialog>
+ <Toast/>
     </View>
   )
 }
