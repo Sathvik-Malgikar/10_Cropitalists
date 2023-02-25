@@ -21,11 +21,12 @@ let investor = require("./assets/images/investor.png")
     <Form img={investor} setIsFarmer={setIsFarmer}></Form>):(
       <View style={styles.formbox}>
       <TouchableOpacity onPress={()=>{setIsFarmer(1)}}>
-
+<Text>Farmer</Text>
       <Image style={styles.imgdisp} source={carrot} ></Image>
       </TouchableOpacity>
       <Text> OR </Text>
       <TouchableOpacity onPress={()=>{setIsFarmer(0)}}>
+<Text>Retailer</Text>
       <Image style={styles.imgdisp} source={investor} ></Image>
       </TouchableOpacity>
       </View>

@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
 profilePhoto :{
- width : 30,
+ width : 90,
+ height : 90,
  borderRadius : 30,
  overflow : "hidden"
 },
