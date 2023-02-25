@@ -3,6 +3,7 @@ import {React, useState} from 'react'
 
 import { Ionicons } from '@expo/vector-icons'; 
 import Toast from 'react-native-toast-message';
+import styles from "./styles"
 
 
 const Form = ({img,setIsFarmer}) => {
@@ -65,9 +66,7 @@ Toast.show({
   )
 }
 
-const styles = StyleSheet.create({
-  
-})
+
 
 export default Form
 

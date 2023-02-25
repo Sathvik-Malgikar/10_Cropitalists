@@ -2,7 +2,7 @@
 import { useState  } from "react"
 import { StyleSheet, Text, Image, View,TextInput, ScrollView ,TouchableOpacity} from 'react-native';
 import Form from './Form';
-
+import styles from "./styles"
 
 
 const Register = () =>{
@@ -36,10 +36,6 @@ let investor = require("./assets/images/investor.png")
 
   );
 }
-
-const styles = StyleSheet.create({
-  
-})
 
 
 export default Register
