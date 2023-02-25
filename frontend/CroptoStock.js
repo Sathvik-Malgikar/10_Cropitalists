@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, Text,Image, Touchable,TextInput, TouchableOpaci
 import React, { useState } from 'react'
 import styles from "./styles"
 import { SimpleGrid } from 'react-native-super-grid';
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
 
 
 const CroptoStock = () => {
@@ -10,7 +11,8 @@ const CroptoStock = () => {
     // deets = deets.map(ele=>require(ele))
 
 const [box,setBox] = useState(false)
-
+const [pop,setPop] = useState(false)
+const [summary,setSummary]= useState('');
   return (
     <View style={styles.container}>
       <Text style={styles.titlecontain}>Crops2Stocks !</Text>
@@ -30,7 +32,10 @@ setBox(true)
         </TouchableOpacity>
         {box?
             
-                <TextInput placeholder='Enter in kgs'></TextInput>
+                <TextInput placeholder='Enter in kgs' onChangeText={(val)=>{
+                    let ival = parseInt(val)
+  setSummary(summary+`${ele.item.name} ${ival} kgs -- ${ival*10} stocks ${672 + Math.random()*100} each -- total ${ 698 * ival} rupees`)
+                }} ></TextInput>
              : <></>
         }
 
@@ -40,16 +45,27 @@ setBox(true)
 
     )
 })}/>
-<View>
-<Text>Summary</Text>
 
-</View>
 <TouchableOpacity onPress={()=>{
-    
-}} style={stylesloc.button}>
+    setPop(true)
+}} style={styleslocal.button}>
     <Text>Submit</Text> 
 </TouchableOpacity>
       </ScrollView>
+      <Dialog
+    visible={pop}
+    onTouchOutside={() => {
+      setPop(false)
+    }}
+  >
+    <DialogContent>
+      <Text>Are you sure to publish this many stocks ? </Text>
+      <View>
+<Text>Summary : {summary}</Text>
+
+</View>
+    </DialogContent>
+  </Dialog>
     </View>
   )
 }
