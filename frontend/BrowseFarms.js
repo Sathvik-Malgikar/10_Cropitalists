@@ -21,13 +21,12 @@ const BrowseFarms = () => {
   let deets = [ {"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "Ramchandra" , "crop" : "arecanut" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Govinda" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" },{"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "John" , "crop" : "Milk" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Abdul" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" }]
   //fetch some farmers deets from db
   return (<>
-    
-  
     <View style={styleslocal.sum} >
 
 <Text>total investment : {total}</Text>
 </View>
-    <ScrollView style={styles.container}>
+  
+    <ScrollView  style={styles.container}>
       <Text style={styles.titlecontain}>BrowseFarms</Text>
       <SimpleGrid 
        itemDimension={130}
@@ -41,14 +40,14 @@ const BrowseFarms = () => {
 })}/>
 
     </ScrollView>
+  
   </>
   )
 }
 
 const styleslocal = StyleSheet.create({
   sum :{
-  
-position : "fixed",
+
     display : "flex",
     justifyContent : "space-around",
     flexDirection : "column",
