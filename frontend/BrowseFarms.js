@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View , ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import styles from "./styles"
 import { useNavigation } from '@react-navigation/native';
@@ -14,12 +14,20 @@ const BrowseFarms = () => {
   console.log(("nav func called!"));
   navigation.navigate("Portfolio" , {"name" : n})
  }
-    
-  let deets = [ {"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "Ramchandra" , "crop" : "arecanut" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Govinda" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" }]
+ const [total, setTotal] =useState(0);
+ function admnt (a){
+  setTotal(total+a)
+ }
+  let deets = [ {"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "Ramchandra" , "crop" : "arecanut" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Govinda" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" },{"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "John" , "crop" : "Milk" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Abdul" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" }]
   //fetch some farmers deets from db
-  return (
+  return (<>
+    
   
-    <View style={styles.container}>
+    <View style={styleslocal.sum} >
+
+<Text>total investment : {total}</Text>
+</View>
+    <ScrollView style={styles.container}>
       <Text style={styles.titlecontain}>BrowseFarms</Text>
       <SimpleGrid 
        itemDimension={130}
@@ -27,18 +35,31 @@ const BrowseFarms = () => {
   renderItem={((ele)=>{
     console.log(ele)
     return (
-        <Stockcard2 obj = {ele.item} cb = {navfunc} >  </Stockcard2>
+        <Stockcard2 obj = {ele.item} cb = {navfunc} addamt={admnt} >  </Stockcard2>
 
     )
-})}
-  />
-    </View>
+})}/>
+
+    </ScrollView>
+  </>
   )
 }
 
 const styleslocal = StyleSheet.create({
-  suggestGrid :{
-   
+  sum :{
+  
+position : "fixed",
+    display : "flex",
+    justifyContent : "space-around",
+    flexDirection : "column",
+    alignItems : "center",
+backgroundColor : "#77ff5c",
+borderRadius : 20,
+padding : 5,
+marginLeft : 14,
+marginBottom : 14,
+marginTop : 20,
+
   }
 })
 

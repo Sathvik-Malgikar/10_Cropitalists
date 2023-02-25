@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View , TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./styles"
 
-const Stockcard2 = ({obj , cb}) => {
+const Stockcard2 = ({obj , cb , addamt}) => {
+
+  const [quant, setQuant] =useState(0)
     
   return (<TouchableOpacity onPress={()=>{
 cb(obj.name)
@@ -14,14 +16,36 @@ cb(obj.name)
       <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
       <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
       <Text style= {styleslocal.subele}>{obj.fut}</Text>
-    </View>
+      <TouchableOpacity onPress={()=>{
+  setQuant(quant+1)
+  addamt(parseFloat( obj.rev))
+      }}>
+
+    <Text  style={styles.button}>
+    ADD TO CART
+    </Text>
+    </TouchableOpacity>
+      <Text>{quant} stocks </Text> 
+    </View> 
     ) : 
-    (<View style={styleslocal.cont}>
+    (
+        <View style={styleslocal.cont}>
       <Text style= {styleslocal.subele}> Stock : {obj.name}</Text>
       <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
       <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
       <Text style= {styleslocal.subele}>{obj.fut}</Text>
-    </View>)}
+      <TouchableOpacity onPress={()=>{
+  setQuant(quant+1)
+  addamt(parseFloat( obj.rev))
+      }}>
+
+    <Text  style={styles.button}>
+    ADD TO CART
+    </Text>
+    </TouchableOpacity>
+      <Text>{quant} stocks </Text> 
+    </View> 
+    ) }
   </TouchableOpacity>
     
     
