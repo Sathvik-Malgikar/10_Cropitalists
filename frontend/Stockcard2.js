@@ -1,15 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View , TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from "./styles"
 
 const Stockcard2 = ({obj}) => {
     
-  return (
-    <View style={styleslocal.cont}>
-      <Text> Stock : {obj.crop}</Text>
-      <Text>Price per stock {obj.rev}</Text>
-      <Text>{obj.fut}</Text>
+  return (<TouchableOpacity onPress={()=>{
+
+  }}>
+
+{obj.fut=="DOWN"?(
+        <View style={[styleslocal.cont , styleslocal.red]}>
+      <Text style= {styleslocal.subele}> Stock : {obj.name}</Text>
+      <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
+      <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
+      <Text style= {styleslocal.subele}>{obj.fut}</Text>
     </View>
+    ) : 
+    (<View style={styleslocal.cont}>
+      <Text style= {styleslocal.subele}> Stock : {obj.name}</Text>
+      <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
+      <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
+      <Text style= {styleslocal.subele}>{obj.fut}</Text>
+    </View>)}
+  </TouchableOpacity>
+    
+    
+    
   )
 }
 
@@ -20,7 +36,17 @@ const styleslocal = StyleSheet.create({
     justifyContent : "center",
     alignItems : "center",
     display : "flex",
-    flexDirection : "row",
-
+    flexDirection : "column",
+    backgroundColor : "#77ff5c",
+    borderRadius: 10,
+    padding : 4,
+    margin  : 8,
+    
+},
+red :{
+    backgroundColor : "#ff7777",
+ },
+ subele : {
+    padding : 4
  }
 })
