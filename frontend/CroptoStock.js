@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import styles from "./styles"
 import { SimpleGrid } from 'react-native-super-grid';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
-
+import { useNavigation } from '@react-navigation/native';
 
 const CroptoStock = () => {
+  navigator - useNavigation();
     let deets = [{"name" : "carrot" , "img" : require("./assets/images/carrot.png")}, { "name" : "dairy" , "img" : require("./assets/images/cow.jpg") } , { "name" : "poultry" , "img" :require("./assets/images/hen.jpg") }, { "name" : "banana" , "img" :require("./assets/images/banana.jpg") } , { "name" : "redapple" , "img" : require("./assets/images/redapple.jpg") }
     , { "name" : "honey" , "img" : require("./assets/images/honey.jpg") }]
     // deets = deets.map(ele=>require(ele))
@@ -34,7 +35,7 @@ setBox(true)
             
                 <TextInput placeholder='Enter in kgs' onChangeText={(val)=>{
                     let ival = parseInt(val)
-  setSummary(summary+`${ele.item.name} ${ival} kgs -- ${ival*10} stocks ${672 + Math.random()*100} each -- total ${ 698 * ival} rupees`)
+  setSummary(summary+`\n${ele.item.name} ${ival} kgs -- ${ival*10} stocks ${672 + Math.fround(Math.random()*100) } each -- total ${ 698 * ival} rupees`)
                 }} ></TextInput>
              : <></>
         }
@@ -62,6 +63,12 @@ setBox(true)
       <Text>Are you sure to publish this many stocks ? </Text>
       <View>
 <Text>Summary : {summary}</Text>
+
+  <TouchableOpacity onPress={()=>{
+ navigator.navigate("Portfolio")
+  }} style={styleslocal.button}>
+      <Text>Confirm</Text> 
+  </TouchableOpacity>
 
 </View>
     </DialogContent>
