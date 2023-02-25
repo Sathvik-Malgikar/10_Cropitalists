@@ -11,11 +11,18 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    required: [true, "Password field is required"],
   },
   number: {
     type: String,
     required: [true, "Number field is required"],
+  },
+  region: {
+    type: String,
+    required: [true, "Region field is required"],
+  },
+  imageURL: {
+    type: String,
+    required: [true, "Image URL field is required"],
   },
   type: {
     type: String,
