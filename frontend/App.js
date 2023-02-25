@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Register from "./Register";
+import About from "./About";
+import Helpline from "./Helpline";
 import styles from "./styles"
 
 
