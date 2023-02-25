@@ -15,6 +15,8 @@ export default function App() {
          <Drawer.Navigator initialRouteName='Register'>
 
 <Drawer.Screen name='Register' component={Register} />
+<Drawer.Screen name='Helpline' component={Helpline} />
+<Drawer.Screen name='About' component={About} />
 
       </Drawer.Navigator>
     </NavigationContainer>
@@ -22,6 +24,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
- 
-});
