@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import styles from "./styles"
+
 import Stockcard2 from "./Stockcard2"
 import { SimpleGrid } from 'react-native-super-grid';
 

@@ -2,10 +2,10 @@ import { StyleSheet, Text, View , TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from "./styles"
 
-const Stockcard2 = ({obj}) => {
+const Stockcard2 = ({obj , navigation}) => {
     
   return (<TouchableOpacity onPress={()=>{
-
+ navigation.navigate("Portfolio" , {"name" : obj.name})
   }}>
 
 {obj.fut=="DOWN"?(
