@@ -6,20 +6,29 @@ import styles from "./styles"
 const Dashboard = () => {
     const [name , setName] = useState("Loading..")
     //fetch from db
+
+
+
+    const [select , setSelect] = useState(-1)
+   
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.titlecontain}>Dashboard - {name}</Text>
       <View style={styles.formbox}>
         <View style={styles.button}>
-<Text>Revenue</Text>
+<Text onPress={()=>{setSelect(0)}}>Revenue</Text>
         </View>
         <View style={styles.button}>
         
-<Text>Seasonal Revenue</Text>
+<Text onPress={()=>{setSelect(1)}}>Seasonal Revenue</Text>
         </View>
         <View style={styles.button}>
-<Text>Highest Revenue Crop </Text>
+<Text onPress={()=>{setSelect(2)}}>Highest Revenue Crop </Text>
         </View>
+        {select==-1? (<></>): select==0? (<RevenueDropdown></RevenueDropdown>) : select==1? (<RevenueDropdown></RevenueDropdown>) : (<Revpercrop></Revpercrop>)}
+       
       </View>
     </View>
   )
@@ -46,13 +55,13 @@ const RevenueDropdown = () => {
 }
 const Revpercrop = () => {
 
-    let cropmap = { {} ,  "arcenaut" : "3183.7" , "Banana" : "1002.3" }
+    let cropmap = [ {"crop" : "wheat" , "rev" : 2416.2} , {"crop" : "arecanut" , "rev" : 3516.2}, {"crop" : "banana" , "rev" : 915.1}]
   return (
     <View style={styleslocal.dropdown}>
      
 {cropmap.map((ele,i)=>{
     return (
-        <Text>{ele} -- {ele} </Text>
+        <Text>{ele.crop} -- {ele.rev} </Text>
 
     )
 })}
