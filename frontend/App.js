@@ -7,6 +7,7 @@ import About from "./About";
 import Helpline from "./Helpline";
 import Dashboard from "./Dashboard";
 import RetailerPage from "./RetailerPage";
+import CroptoStock from "./CroptoStock";
 import styles from "./styles"
 
 
@@ -22,6 +23,7 @@ export default function App() {
 <Drawer.Screen name='Helpline' component={Helpline} />
 <Drawer.Screen name='About' component={About} />
 <Drawer.Screen name='Dashboard' component={Dashboard} />
+<Drawer.Screen name='CroptoStock' component={CroptoStock} />
 <Drawer.Screen name='RetailerPage' component={RetailerPage} />
 
       </Drawer.Navigator>
