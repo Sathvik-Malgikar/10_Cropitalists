@@ -73,7 +73,9 @@ setBox(true)
   text2 : "New stocks are published!",
 })
 setTimeout(()=>{
+ setSummary("")
  navigation.navigate("Dashboard")
+
 },1000)
 
 
