@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import BrowseFarms from "./BrowseFarms";
-import Portfolio from "./Portfolio";
+// import Portfolio from "./Portfolio";
+import StockOverview from "./StockOverview"
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -10,7 +11,7 @@ const InvestorPage = () => {
   return (
     <Stack.Navigator>
     <Stack.Screen name="BrowseFarms" component={BrowseFarms} />
-   <Stack.Screen name="Portfolio" component={Portfolio} />
+   <Stack.Screen name="StockOverview" component={StockOverview} />
  </Stack.Navigator>
   )
 }

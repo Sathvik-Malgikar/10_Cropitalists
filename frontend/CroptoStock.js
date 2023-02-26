@@ -13,6 +13,8 @@ const CroptoStock = ({navigation}) => {
     // deets = deets.map(ele=>require(ele))
 
 const [box,setBox] = useState(false)
+const [deets_,setDeets_] = useState([{"name" : "carrot" , "inp" :"" }, { "name" : "dairy" , "inp" : "" } , { "name" : "poultry" , "inp" : "" }, { "name" : "banana" , "inp" : "" } , { "name" : "redapple" , "inp" : "" }
+    , { "name" : "honey" , "inp" : "" }])
 const [pop,setPop] = useState(false)
 const [summary,setSummary]= useState('');
   return (
@@ -36,7 +38,18 @@ setBox(true)
             
                 <TextInput placeholder='Enter in kgs' onChangeText={(val)=>{
                     let ival = parseInt(val)
-  setSummary(summary+`\n${ele.item.name} ${ival} kgs -- ${ival*10} stocks ${672 + Math.fround(Math.random()*100) } each -- total ${ 698 * ival} rupees`)
+                    let myobj = deets_.filter(elem=>{
+                      return elem.name==ele.item.name
+                    })[0]
+                    console.log(myobj)
+                    let tempdeets=deets_.filter(elem=>{
+                      return elem.name!=ele.item.name
+                    })
+                    myobj["inp"] = ival
+                    tempdeets.push(myobj)
+                    console.log(tempdeets)
+                    setDeets_(tempdeets)
+
                 }} ></TextInput>
              : <></>
         }
@@ -49,6 +62,14 @@ setBox(true)
 })}/>
 
 <TouchableOpacity onPress={()=>{
+    let sumStr='';
+    deets_.forEach(ele=>{
+      console.log("label",ele)
+      // let ival = parseInt(ele.inp)
+      // setSummary(summary+`\n${ele.name} ${ele.inp} kgs -- ${ele.inp *10} stocks ${672 + Math.fround(Math.random()*100) } each -- total ${ 698 * ele.inp} rupees`)
+      sumStr+=`\n${ele.name} ${ele.inp} kgs -- ${ele.inp *10} stocks ${672 + Math.fround(Math.random()*100) } each -- total ${ 698 * ele.inp} rupees`;
+    })
+    setSummary(sumStr)
     setPop(true)
 }} style={styleslocal.button}>
     <Text>Submit</Text> 
@@ -72,8 +93,8 @@ setBox(true)
   text1 : "Stocks created!",
   text2 : "New stocks are published!",
 })
-setTimeout(()=>{
  setSummary("")
+setTimeout(()=>{
  navigation.navigate("Dashboard")
 
 },1000)

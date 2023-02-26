@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import styles from "./styles"
 import { useNavigation } from '@react-navigation/native';
 import Dialog, { DialogContent } from 'react-native-popup-dialog';
-import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
 import Stockcard2 from "./Stockcard2"
 import { SimpleGrid } from 'react-native-super-grid';
@@ -15,7 +14,7 @@ const BrowseFarms = () => {
 const [summary,setSummary]= useState('');
   const navigation = useNavigation(); 
  function navfunc(n){
-  navigation.navigate("Portfolio" , {"name" : n})
+  navigation.navigate("StockOverview" , {"name" : n})
  }
  const [total, setTotal] =useState(0);
  function admnt (a){
@@ -50,6 +49,43 @@ const [summary,setSummary]= useState('');
 }} >
     <Text>Submit</Text> 
 </TouchableOpacity>
+
+    <Dialog
+    visible={pop}
+    onTouchOutside={() => {
+      setPop(false)
+    }}
+  >
+    <DialogContent>
+      <Text>Are you sure you want to invest ? </Text>
+      <View>
+<Text>Summary : {summary}</Text>
+
+  <TouchableOpacity onPress={()=>{
+  setPop(false)
+ Toast.show({
+  type : "success",
+  text1 : "Stocks purchased!",
+  text2 : "Your investment has been made !",
+})
+setTimeout(()=>{
+ setSummary("")
+ setTotal(0)
+ 
+ navigation.navigate("StockOverview")
+
+},1000)
+
+
+  }} style={styleslocal.button}>
+      <Text>Confirm</Text> 
+  </TouchableOpacity>
+
+</View>
+    </DialogContent>
+  </Dialog>
+ <Toast/>
+
     </View>
   </>
   )
