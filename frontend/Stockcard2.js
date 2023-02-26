@@ -12,7 +12,12 @@ cb(obj.name)
 
 {obj.fut=="DOWN"?(
         <View style={[styleslocal.cont , styleslocal.red]}>
-      <Text style= {styleslocal.subele}> Stock : {obj.name}</Text>
+    <TouchableOpacity onPress={()=>{
+  setQuant(quant+1)
+  addamt(parseFloat( obj.rev))
+      }}>
+    <Text  style= {[styleslocal.subele , styles.link]}> Stock : {obj.name}</Text>
+    </TouchableOpacity> 
       <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
       <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
       <Text style= {styleslocal.subele}>{obj.fut}</Text>
@@ -22,7 +27,17 @@ cb(obj.name)
       }}>
 
     <Text  style={styles.button}>
-    ADD TO CART
+    +
+    </Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>{
+      if(quant==0) return
+  setQuant(quant-1)
+  addamt(parseFloat( obj.rev))
+      }}>
+
+    <Text  style={styles.button}>
+    -
     </Text>
     </TouchableOpacity>
       <Text>{quant} stocks </Text> 
@@ -30,7 +45,7 @@ cb(obj.name)
     ) : 
     (
         <View style={styleslocal.cont}>
-      <Text style= {styleslocal.subele}> Stock : {obj.name}</Text>
+      <Text style= {[styleslocal.subele , styles.link]}> Stock : {obj.name}</Text>
       <Text style= {styleslocal.subele}> Stock : {obj.crop}</Text>
       <Text style= {styleslocal.subele}>Price per stock {obj.rev}</Text>
       <Text style= {styleslocal.subele}>{obj.fut}</Text>
@@ -40,7 +55,17 @@ cb(obj.name)
       }}>
 
     <Text  style={styles.button}>
-    ADD TO CART
+    +
+    </Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={()=>{
+      if(quant==0) return
+  setQuant(quant-1)
+  addamt(parseFloat( obj.rev))
+      }}>
+
+    <Text  style={styles.button}>
+    -
     </Text>
     </TouchableOpacity>
       <Text>{quant} stocks </Text> 

@@ -6,6 +6,7 @@ import Toast from 'react-native-toast-message';
 import styles from "./styles"
 
 
+
 const Form = ({img,setIsFarmer}) => {
   const [ name , setName] = useState("")
 const [ region, setRegion] = useState("")

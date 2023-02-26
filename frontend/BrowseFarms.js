@@ -1,17 +1,20 @@
-import { StyleSheet, Text, View , ScrollView } from 'react-native'
+import { StyleSheet, Text, View , ScrollView ,TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import styles from "./styles"
 import { useNavigation } from '@react-navigation/native';
-
+import Dialog, { DialogContent } from 'react-native-popup-dialog';
+import { useNavigation } from '@react-navigation/native';
+import Toast from 'react-native-toast-message';
 import Stockcard2 from "./Stockcard2"
 import { SimpleGrid } from 'react-native-super-grid';
 
 
 
 const BrowseFarms = () => {
+  const [pop,setPop] = useState(false)
+const [summary,setSummary]= useState('');
   const navigation = useNavigation(); 
  function navfunc(n){
-  console.log(("nav func called!"));
   navigation.navigate("Portfolio" , {"name" : n})
  }
  const [total, setTotal] =useState(0);
@@ -40,12 +43,27 @@ const BrowseFarms = () => {
 })}/>
 
     </ScrollView>
-  
+    <View style={styleslocal.button}>
+
+    <TouchableOpacity onPress={()=>{
+    setPop(true)
+}} >
+    <Text>Submit</Text> 
+</TouchableOpacity>
+    </View>
   </>
   )
 }
 
 const styleslocal = StyleSheet.create({
+  button :{
+    backgroundColor : "#f4f2fd",
+    margin : 6,
+    padding : 6,
+    textAlign : "center",
+    color : "#77ff5c",
+    borderRadius : 4,
+  },
   sum :{
 
     display : "flex",

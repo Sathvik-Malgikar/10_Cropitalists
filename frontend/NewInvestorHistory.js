@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { React, useState, useEffect } from "react";
 import styles from "./styles";
 
-const InvestorHistory = () => {
+const NewInvestorHistory = () => {
   const [invtarr, setinvtarr] = useState([]);
   useEffect(() => {
     setinvtarr([
@@ -84,4 +84,4 @@ const InvestorTile = ({ amount, invstrname, txId, amtStock, nameStock }) => {
   );
 };
 
-export default InvestorHistory;
+export default NewInvestorHistory;
