@@ -17,7 +17,18 @@ export default function App() {
 
 
   return (
-    
+    <NavigationContainer>
+         <Drawer.Navigator initialRouteName='Register'>
+
+<Drawer.Screen name='Register' component={Register} />
+<Drawer.Screen name='Helpline' component={Helpline} />
+<Drawer.Screen name='About' component={About} />
+<Drawer.Screen name='Dashboard' component={Dashboard} />
+<Drawer.Screen name='CroptoStock' component={CroptoStock} />
+<Drawer.Screen name='RetailerPage' component={RetailerPage} />
+
+      </Drawer.Navigator>
+    </NavigationContainer>
    
   );
 }

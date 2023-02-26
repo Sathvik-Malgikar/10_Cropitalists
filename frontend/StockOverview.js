@@ -64,7 +64,7 @@ const StockOverview=({navigation})=>{
         <Text>Bezier Line Chart</Text>
         <LineChart
           data={{
-            labels: ["January", "February", "March", "April", "May", "June"],
+            labels: ["-20 sec ", "-10 sec", "-5 min ", "current"],
             datasets: [
               {
                 data: [
@@ -109,7 +109,7 @@ const StockOverview=({navigation})=>{
             Analysis
         </Text>
         <TouchableOpacity onPress={()=>{
-            navigation.navigate("Portfolio")
+            navigation.navigate("Portfolio" , {"name" : ""})
         }}>
             <Text style={styles.button}>Go to portfolio</Text>
         </TouchableOpacity>

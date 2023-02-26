@@ -9,8 +9,8 @@ const Portfolio = ({cname ,navigation,route }) => {
   // const navigation = useNavigation(); 
   let deets = [ {"name" : "Ramesh" , "crop" : "wheat" , "rev" : 2416.2, "fut" : "UP" } , {"name" : "Ramchandra" , "crop" : "arecanut" , "rev" : 3516.2, "fut" : "DOWN" }, {"name" : "Govinda" , "crop" : "banana" , "rev" : 915.1, "fut" : "UP" }]
     //fetch from db
-    let chosen = deets.filter(ele=>ele.name == route.params.name || cname)
-    chosen = chosen[0]
+    // let chosen = deets.filter(ele=>ele.name ==  cname)
+    chosen = deets[0]
 let stars =  Math.ceil(Math.random()*5)
 const arrayRange = (start, stop, step) => Array. from( { length: (stop - start) / step + 1 }, (value, index) => start + index * step );
 stars = arrayRange(1,stars,1)

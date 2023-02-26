@@ -72,7 +72,7 @@ setTimeout(()=>{
  setSummary("")
  setTotal(0)
  
- navigation.navigate("StockOverview")
+ navigation.navigate("StockOverview",{"name" : ""})
 
 },1000)
 

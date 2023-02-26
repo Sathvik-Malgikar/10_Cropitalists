@@ -26,7 +26,7 @@ cb(obj.name)
   addamt(parseFloat( obj.rev))
       }}>
 
-    <Text  style={styles.button}>
+    <Text  style={[styles.button,styleslocal.lk]}>
     +
     </Text>
     </TouchableOpacity>
@@ -36,7 +36,7 @@ cb(obj.name)
   addamt(parseFloat( obj.rev))
       }}>
 
-    <Text  style={styles.button}>
+    <Text  style={[styles.button,styleslocal.lk]}>
     -
     </Text>
     </TouchableOpacity>
@@ -54,7 +54,7 @@ cb(obj.name)
   addamt(parseFloat( obj.rev))
       }}>
 
-    <Text  style={styles.button}>
+    <Text  style={[styles.button,styleslocal.lk]}>
     +
     </Text>
     </TouchableOpacity>
@@ -64,7 +64,7 @@ cb(obj.name)
   addamt(parseFloat( obj.rev))
       }}>
 
-    <Text  style={styles.button}>
+    <Text  style={[styles.button,styleslocal.lk]}>
     -
     </Text>
     </TouchableOpacity>
@@ -91,6 +91,10 @@ const styleslocal = StyleSheet.create({
     padding : 4,
     margin  : 8,
     
+},
+lk : {
+width : 30,
+height : 30,
 },
 red :{
     backgroundColor : "#ff7777",
